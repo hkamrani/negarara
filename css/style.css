@@ -1,0 +1,81 @@
+#negarara-drop-area {
+    border: 2px dashed #FFD23F;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top:30px;
+    transition: border-color 0.3s ease;
+    border-radius:17px;
+    background-color: #FFD23F20;
+    position: relative;
+}
+#negarara-drop-area.drag-over {
+    border-color: #0EAD69;
+    background-color: #fff;
+}
+#negarara-file-upload {
+    display: none;
+}
+.upload-instructions {
+    pointer-events: none;
+}
+.upload-instructions p {
+    font-size: 16px;
+    color: #000;
+}
+.upload-instructions .button {
+    pointer-events: auto;
+    margin-top: 10px;
+    background-color: #000;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.upload-instructions .button:hover {
+    background-color: #3BCEAC;
+    color:#fff
+}
+#negarara-upload-progress {
+    margin-top: 30px;
+}
+.progress {
+    width: 100%;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    border-radius:17px;
+    overflow: hidden;
+    position: relative;
+}
+.progress-bar {
+    width: 0%;
+    height: 40px;
+    background-color: #0EAD69;
+    transition: width 0.3s ease;
+    position: relative;
+}
+.progress-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+    line-height: 40px;
+    color: #fff;
+}
+.success-message {
+    color: #fff;
+    padding:20px;
+    background:#0EAD69;
+    border-radius:17px;
+}
+.error-message {
+    color: #ee4266;
+    font-weight: bold;
+}

@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Negarara 1.0\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2024-08-01 13:45+0300\n"
+"Last-Translator: Ertano\n"
+"Language-Team: French\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+msgid "Upload Images for WebP Conversion"
+msgstr "Télécharger des images pour la conversion en WebP"
+
+msgid "Drag & Drop your files here or click to upload"
+msgstr "Glissez et déposez vos fichiers ici ou cliquez pour télécharger"
+
+msgid "Select Files"
+msgstr "Sélectionner des fichiers"
+
+msgid "Please wait..."
+msgstr "Veuillez patienter..."
+
+msgid "Images have been uploaded and converted to WebP!"
+msgstr "Les images ont été téléchargées et converties en WebP !"
+
+msgid "An error occurred"
+msgstr "Une erreur s'est produite"
+
+msgid "Debug info:"
+msgstr "Informations de débogage :"
+
+msgid "WebP Converter Settings"
+msgstr "Paramètres du convertisseur WebP"
+
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "Set the quality for the exported WebP images."
+msgstr "Définir la qualité des images exportées en WebP."
+
+msgid "WebP Image Quality"
+msgstr "Qualité de l'image WebP"
+
+msgid "Upload and Convert"
+msgstr "Télécharger et convertir"
