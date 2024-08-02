@@ -22,7 +22,7 @@ include_once plugin_dir_path( __FILE__ ) . 'admin/upload-page.php';
 
 // Enqueue scripts and styles
 function negarara_enqueue_scripts($hook) {
-    if ($hook != 'toplevel_page_negarara_upload' && $hook != 'settings_page_negarara_settings') {
+    if ($hook != 'toplevel_page_negarara_upload' && $hook != 'negarara_page_negarara_settings') {
         return;
     }
     wp_enqueue_script('negarara-upload-script', plugins_url('/js/upload.js', __FILE__), array('jquery'), '1.0', true);
