@@ -1,28 +1,37 @@
+:root {
+    --ng-main-color: #3cb8ca;
+}
+
 #negarara-drop-area {
     border: 2px dashed #FFD23F;
     padding: 40px;
     text-align: center;
     margin-bottom: 20px;
-    margin-top:30px;
+    margin-top: 30px;
     transition: border-color 0.3s ease;
-    border-radius:17px;
+    border-radius: 17px;
     background-color: #FFD23F20;
     position: relative;
 }
+
 #negarara-drop-area.drag-over {
     border-color: #0EAD69;
     background-color: #fff;
 }
+
 #negarara-file-upload {
     display: none;
 }
+
 .upload-instructions {
     pointer-events: none;
 }
+
 .upload-instructions p {
     font-size: 16px;
     color: #000;
 }
+
 .upload-instructions .button {
     pointer-events: auto;
     margin-top: 10px;
@@ -38,21 +47,25 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 .upload-instructions .button:hover {
     background-color: #3BCEAC;
-    color:#fff
+    color: #fff
 }
+
 #negarara-upload-progress {
     margin-top: 30px;
 }
+
 .progress {
     width: 100%;
     background-color: #f3f3f3;
     border: 1px solid #ccc;
-    border-radius:17px;
+    border-radius: 17px;
     overflow: hidden;
     position: relative;
 }
+
 .progress-bar {
     width: 0%;
     height: 40px;
@@ -60,6 +73,7 @@
     transition: width 0.3s ease;
     position: relative;
 }
+
 .progress-text {
     position: absolute;
     width: 100%;
@@ -69,13 +83,277 @@
     line-height: 40px;
     color: #fff;
 }
+
 .success-message {
     color: #fff;
-    padding:20px;
-    background:#0EAD69;
-    border-radius:17px;
+    padding: 20px;
+    background: #0EAD69;
+    border-radius: 17px;
 }
+
 .error-message {
     color: #ee4266;
     font-weight: bold;
 }
+
+
+
+/* start panel style */
+.mwtc_admin_settings_wrapper {
+    min-height: 100px;
+    width: 95%;
+    margin: 50px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+}
+
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper {
+    width: 25%;
+    margin: 0 0 0 20px;
+}
+
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar {
+    background-color: #fff;
+    border-radius: 10px;
+    min-height: 100px;
+    padding: 30px 0;
+}
+
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar .mw_logo_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar .mw_logo_section .mw_logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    box-shadow: 0 7px 20px rgba(45, 205, 228, .3);
+}
+
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar .mw_logo_section .mw_hello {
+    font-size: 16px;
+}
+
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar ul li {
+    margin: 5px 15px;
+    border-radius: 10px;
+}
+
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar ul li a {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    box-shadow: none;
+    padding: 17px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    color: #595959;
+}
+
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar ul li a .menu-icon {
+    width: 24px;
+    height: 24px;
+    background-position: center center;
+    background-size: cover;
+}
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar ul li a .menu-icon[tab=note] {
+    background-image: url(../img/option-panel/note-2.svg);
+}
+
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar ul li.active a .menu-icon[tab=note],
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar ul li:hover a .menu-icon[tab=note] {
+    background-image: url(../img/option-panel/note-2-white.svg);
+}
+
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar ul li.active {
+    background-color: var(--ng-main-color);
+    color: #fff;
+    position: relative;
+}
+
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar ul li.active a,
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar ul li:hover a {
+    color: #fff;
+}
+
+.mwtc_admin_settings_wrapper.mwtc-rtl .mwtc_sidebar_wrapper .sidebar ul li.active::after {
+    left: 10px;
+}
+
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar ul li.active::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 60%;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 14px;
+}
+
+.mwtc_admin_settings_wrapper.mwtc-rtl .mwtc_sidebar_wrapper .sidebar ul li.active::after {
+    left: 10px;
+}
+
+.mwtc_admin_settings_wrapper .mwtc_sidebar_wrapper .sidebar ul li:not(.active):hover a {
+    background-color: var(--ng-main-color);
+}
+
+
+/* content */
+.mwtc_admin_settings_wrapper .content_wrapper {
+    flex: auto;
+    width: 75%;
+}
+
+.mwtc_admin_settings_wrapper .content_wrapper .content {
+    min-height: 100px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding-top: 20px;
+}
+
+.mwtc_admin_settings_wrapper .content_wrapper .content form .option_section {
+    padding: 50px;
+    border-radius: 5px;
+}
+
+.mwtc_admin_settings_wrapper .content_wrapper .content form .option_section:nth-of-type(2n) {
+    background-color: #F9F9F9;
+}
+
+.mwtc_admin_settings_wrapper .content_wrapper .content form .option_section:not(:first-of-type) {
+    margin: 15px 0;
+}
+
+.mwtc_admin_settings_wrapper .content_wrapper .content form .option_section .option_section_title {
+    margin: 0 30px;
+    font-size: 20px;
+    position: relative;
+}
+
+.mwtc_admin_settings_wrapper .content_wrapper .content form .option_section .option_section_title::before {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 30px;
+    background-color: #ace0e8;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 0 0 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mwtc_admin_settings_wrapper .content_wrapper .content form .option_section .option_field {
+    display: flex;
+    gap: 10px;
+}
+
+.mwtc_admin_settings_wrapper .content_wrapper .content form .option_section .option_section_description,
+.mwtc_admin_settings_wrapper .content_wrapper .content form .option_section .option_field .option_field_description {
+    color: #646970;
+    font-size: 16px;
+    padding: 20px 20px 0;
+}
+
+.mwtc_admin_settings_wrapper .content_wrapper .content form .option_section .option_field:not(.no-padding) {
+    padding: 20px 30px;
+}
+
+.mwtc_admin_settings_wrapper .content_wrapper .content form .option_section .option_field.option_row_field {
+    flex-direction: row;
+    align-items: center;
+}
+
+.mwtc_admin_settings_wrapper .content_wrapper .content form.mp_options_panel .option_section .option_field.option_col_field,
+.mwtc_admin_settings_wrapper .content_wrapper .content form.mp_options_panel .option_section .option_field:not(.option_row_field) {
+    flex-direction: column;
+}
+
+.mwtc_admin_settings_wrapper .content_wrapper .content .option_section .option_field label {
+    width: 45%;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.mwtc_admin_settings_wrapper.mwtc-rtl .content form .option_section .option_section_title::before {
+    right: -30px;
+}
+
+/* start range style */
+.option_section input[type=range].mwpl_range {
+    direction: ltr;
+    width: 50%;
+    cursor: pointer;
+    -webkit-appearance: none;
+    background: transparent;
+    appearance: none;
+}
+
+.option_section input[type=range].mwpl_range:focus {
+    outline: none;
+}
+
+/* line background */
+.option_section input[type=range].mwpl_range::-webkit-slider-runnable-track {
+    background: #2A85FF;
+    height: 8px;
+    border-radius: 100px;
+}
+
+.option_section input[type=range].mwpl_range::-moz-range-track {
+    background: #2A85FF;
+    height: 8px;
+    border-radius: 100px;
+    border: none;
+}
+
+/* thumb */
+.option_section input[type=range].mwpl_range::-webkit-slider-thumb {
+    background-color: #fff;
+    border: 1px solid #2A85FF54;
+    box-shadow: 0px 2px 4px 0px #1000001A;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-top: -10px;
+    -webkit-appearance: none;
+}
+
+.option_section input[type=range].mwpl_range::-moz-range-thumb {
+    background-color: #fff;
+    border: 1px solid #2A85FF54;
+    box-shadow: 0px 2px 4px 0px #1000001A;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-top: -10px;
+}
+
+/* end range style */
+
+/* submit */
+.mwtc_admin_settings_wrapper .content_wrapper .submit-row input[type=submit] {
+    width: 100%;
+    background: var(--ng-main-color);
+    border: none;
+    box-shadow: none;
+    border-radius: 10px;
+    display: block;
+    float: none;
+    font-size: 15px;
+    height: 55px;
+    line-height: 45px;
+    margin: 0 auto;
+}
+
+/* end panel style */
