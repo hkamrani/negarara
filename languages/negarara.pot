@@ -1,6 +1,8 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Negarara 1.0\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: 2024-08-01 12:00+0000\n"
 "Last-Translator: Ertano\n"
 "Language-Team: Persian\n"
@@ -8,39 +10,59 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
 
-msgid "Upload Images for WebP Conversion"
+#: admin/settings-page.php:13
+msgid "Welcome to NegarAra"
 msgstr ""
 
-msgid "Drag & Drop your files here or click to upload"
+#: admin/settings-page.php:21
+msgid "General"
 msgstr ""
 
-msgid "Select Files"
-msgstr ""
-
-msgid "Please wait..."
-msgstr ""
-
-msgid "Images have been uploaded and converted to WebP!"
-msgstr ""
-
-msgid "An error occurred"
-msgstr ""
-
-msgid "Debug info:"
-msgstr ""
-
-msgid "WebP Converter Settings"
-msgstr ""
-
+#: admin/settings-page.php:36
 msgid "Settings"
 msgstr ""
 
+#: admin/settings-page.php:37
 msgid "Set the quality for the exported WebP images."
 msgstr ""
 
+#: admin/settings-page.php:41
 msgid "WebP Image Quality"
 msgstr ""
 
-msgid "Upload and Convert"
+#: admin/settings-page.php:49
+msgid "Advanced Settings"
+msgstr ""
+
+#: admin/settings-page.php:52
+msgid "Select File Formats to Convert"
+msgstr ""
+
+#: admin/settings-page.php:55
+msgid "JPEG"
+msgstr ""
+
+#: admin/settings-page.php:56
+msgid "JPG"
+msgstr ""
+
+#: admin/settings-page.php:57
+msgid "PNG"
+msgstr ""
+
+#: admin/settings-page.php:58
+msgid "GIF"
+msgstr ""
+
+#: negarara.php:43
+msgid "Negarara Settings"
+msgstr ""
+
+#: negarara.php:43
+msgid "Negarara"
 msgstr ""
