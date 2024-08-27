@@ -20,14 +20,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 include_once plugin_dir_path( __FILE__ ) . 'admin/settings-page.php';
 include_once plugin_dir_path( __FILE__ ) . 'admin/upload-page.php';
 
+if(!defined('NEAGARARA_DIR_URL'))
+{
+    define('NEAGARARA_DIR_URL', plugin_dir_url(__FILE__));
+}
+
 // Enqueue scripts and styles
 function negarara_enqueue_scripts($hook) {
-    if ($hook != 'toplevel_page_negarara_upload' && $hook != 'settings_page_negarara_settings') {
+    if ($hook != 'toplevel_page_negarara_upload' && $hook != 'negarara_page_negarara_settings') {
         return;
     }
     wp_enqueue_script('negarara-upload-script', plugins_url('/js/upload.js', __FILE__), array('jquery'), '1.0', true);
     wp_localize_script('negarara-upload-script', 'negarara_ajax', array('ajax_url' => admin_url('admin-ajax.php'), 'nonce' => wp_create_nonce('negarara_upload_nonce')));
     wp_enqueue_style('negarara-upload-style', plugins_url('/css/style.css', __FILE__), array(), '1.0');
+
+    if($hook == 'negarara_page_negarara_settings')
+    {
+        wp_enqueue_script('negarara-settings-script', plugins_url('/js/panel.js', __FILE__), array('jquery'), '1.0', true);
+    }
 }
 add_action('admin_enqueue_scripts', 'negarara_enqueue_scripts');
 
