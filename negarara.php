@@ -3,7 +3,7 @@
 Plugin Name: Negarara
 Plugin URI: https://ertano.com/negarara
 Description: Convert uploaded images to WebP format with customizable quality settings.
-Version: 1.0
+Version: 1.1
 Author: Ertano
 Author URI: https://ertano.com
 License: GPLv2 or later
@@ -24,7 +24,6 @@ add_action( 'plugins_loaded', 'negarara_load_textdomain' );
 
 // Include admin pages
 include_once plugin_dir_path( __FILE__ ) . 'admin/settings-page.php';
-include_once plugin_dir_path( __FILE__ ) . 'admin/upload-page.php';
 
 if(!defined('NEAGARARA_DIR_URL')) {
     define('NEAGARARA_DIR_URL', plugin_dir_url(__FILE__));
