@@ -1,4 +1,4 @@
-=== Negarara ===
+=== Negarara - Webp Converter for media and Image Optimizer ===
 Contributors: ertano, mihanwp
 Tags: image, conversion, webp, optimization
 Requires at least: 5.0
@@ -11,7 +11,18 @@ A plugin to convert uploaded images to WebP format with customizable quality set
 
 == Description ==
 
-Negarara is a WordPress plugin that converts uploaded images to WebP format. This plugin also includes settings to customize the quality of the output images.
+Transform your website’s image management with Negarara, the ultimate WordPress plugin for converting uploaded images to the highly efficient WebP format. WebP offers superior compression rates compared to traditional formats, helping to significantly reduce load times and improve overall site performance without compromising quality.
+
+= Key Features =
+
+* **Automatic Conversion:** Seamlessly convert JPEG and PNG images to WebP format upon upload, ensuring your media library stays optimized.
+* **Quality Settings:** Customize the quality of your WebP images with adjustable settings, giving you complete control over the balance between quality and file size.
+* **User-Friendly Interface:** Enjoy a simple and intuitive interface that makes managing your images easier than ever.
+* **Compatibility:** Works with any WordPress theme and integrates smoothly with popular image optimization plugins.
+
+= Why Choose Negarara? =
+
+With Negarara, you can enhance your site’s speed and performance while ensuring that your images look stunning. Whether you’re a blogger, an e-commerce site owner, or a web developer, Negarara is the perfect solution for optimizing your images without any hassle.
 
 == Installation ==
 
