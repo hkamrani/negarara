@@ -3,7 +3,7 @@ Contributors: ertano, mihanwp
 Tags: image, conversion, webp, optimization
 Requires at least: 5.0
 Tested up to: 6.6
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,6 +20,8 @@ Negarara is a WordPress plugin that converts uploaded images to WebP format. Thi
 3. Use the 'Media' menu item to upload your files.
 
 == Changelog ==
+= 1.2 =
+* Bulk conversion tool added.
 = 1.1 =
 * New Settings Panel UI
 * WordPress Media Uploader Support

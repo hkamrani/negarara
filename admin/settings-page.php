@@ -64,51 +64,52 @@ function negarara_settings_page()
                             </div>
                         </div>
                     </div>
+
+                    <div class="option_section">
+                        <h3 class="option_section_title"><?php esc_html_e('Bulk Conversion', 'negarara'); ?></h3>
+                        <p class="option_section_description"><?php esc_html_e('Convert all existing images to WebP format and delete the original files.', 'negarara'); ?></p>
+                        <div class="option_field">
+                            <label>
+                                <input type="checkbox" name="negarara_delete_original" value="1" <?php checked(get_option('negarara_delete_original', 1)); ?> />
+                                <?php esc_html_e('Delete original files after conversion', 'negarara'); ?>
+                            </label>
+                            <p class="option_section_description"><?php esc_html_e('Check this box to delete the original images after converting to WebP format during bulk conversion.', 'negarara'); ?></p>
+                        </div>
+                        <button id="negarara_bulk_convert" class="button button-primary"><?php esc_html_e('Convert All Images', 'negarara'); ?></button>
+                        <div id="negarara_conversion_progress"></div>
+                        <div id="negarara_conversion_log" style="max-height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-top: 10px;"></div>
+                    </div>
+                    <div class="option_section">
+                    <input type="submit" class="button button-primary" value="<?php esc_attr_e('Save Changes', 'negarara'); ?>" />
+                    </div>
                 </form>
-            </div>
-            <div class="submit-row">
-                <?php submit_button(null, 'primary', null, true, ['form' => 'negarara-option-panel-form']); ?>
             </div>
         </div>
     </div>
 <?php
 }
 
-function negarara_settings_init()
-{
-    register_setting('negarara_settings_group', 'negarara_quality', 'absint');  // Ensure quality is an integer
+function negarara_settings_init() {
+    register_setting('negarara_settings_group', 'negarara_quality', 'negarara_validate_quality');
     register_setting('negarara_settings_group', 'negarara_delete_original', 'absint');  // Ensure it's a boolean (1 or 0)
     register_setting('negarara_settings_group', 'negarara_formats', 'negarara_sanitize_formats');  // Custom sanitization function for formats array
 
     // Set default values if not already set
     if (get_option('negarara_delete_original') === false) {
-        update_option('negarara_delete_original', 1);
+        update_option('negarara_delete_original', 0); // Default to false
     }
-    
+
     if (get_option('negarara_formats') === false) {
         update_option('negarara_formats', ['jpeg', 'png', 'gif', 'jpg']);
     }
 }
 
-function negarara_sanitize_formats($input) {
-    $valid_formats = ['jpeg', 'jpg', 'png', 'gif'];
-    $output = [];
-
-    foreach ($input as $format) {
-        if (in_array($format, $valid_formats)) {
-            $output[] = sanitize_text_field($format);
-        }
-    }
-
-    return $output;
+function negarara_validate_quality($input) {
+    return absint($input);
 }
 
-function negarara_validate_quality($quality) {
-    $quality = absint($quality);
-    if ($quality < 10 || $quality > 100) {
-        $quality = 80; // Default value if the input is out of range
-    }
-    return $quality;
+function negarara_sanitize_formats($input) {
+    return array_map('sanitize_text_field', (array)$input);
 }
 
 register_setting('negarara_settings_group', 'negarara_quality', 'negarara_validate_quality');

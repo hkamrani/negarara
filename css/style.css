@@ -357,3 +357,12 @@
 }
 
 /* end panel style */
+#negarara_conversion_log .success {
+    color: green;
+}
+#negarara_conversion_log .error {
+    color: red;
+}
+#negarara_conversion_log .info {
+    color: blue;
+}

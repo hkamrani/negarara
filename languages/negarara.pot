@@ -10,59 +10,117 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/settings-page.php:13
+#: admin/settings-page.php:18
 msgid "Welcome to NegarAra"
 msgstr ""
 
-#: admin/settings-page.php:21
+#: admin/settings-page.php:26
 msgid "General"
 msgstr ""
 
-#: admin/settings-page.php:36
+#: admin/settings-page.php:41
 msgid "Settings"
 msgstr ""
 
-#: admin/settings-page.php:37
+#: admin/settings-page.php:42
 msgid "Set the quality for the exported WebP images."
 msgstr ""
 
-#: admin/settings-page.php:41
+#: admin/settings-page.php:46
 msgid "WebP Image Quality"
 msgstr ""
 
-#: admin/settings-page.php:49
+#: admin/settings-page.php:54
 msgid "Advanced Settings"
 msgstr ""
 
-#: admin/settings-page.php:52
+#: admin/settings-page.php:57
 msgid "Select File Formats to Convert"
 msgstr ""
 
-#: admin/settings-page.php:55
+#: admin/settings-page.php:60
 msgid "JPEG"
 msgstr ""
 
-#: admin/settings-page.php:56
+#: admin/settings-page.php:61
 msgid "JPG"
 msgstr ""
 
-#: admin/settings-page.php:57
+#: admin/settings-page.php:62
 msgid "PNG"
 msgstr ""
 
-#: admin/settings-page.php:58
+#: admin/settings-page.php:63
 msgid "GIF"
 msgstr ""
 
-#: negarara.php:43
+#: admin/settings-page.php:69
+msgid "Bulk Conversion"
+msgstr ""
+
+#: admin/settings-page.php:70
+msgid "Convert all existing images to WebP format and delete the original files."
+msgstr ""
+
+#: admin/settings-page.php:74
+msgid "Delete original files after conversion"
+msgstr ""
+
+#: admin/settings-page.php:76
+msgid "Check this box to delete the original images after converting to WebP format during bulk conversion."
+msgstr ""
+
+#: admin/settings-page.php:78
+msgid "Convert All Images"
+msgstr ""
+
+#: negarara.php:47
 msgid "Negarara Settings"
 msgstr ""
 
-#: negarara.php:43
+#: negarara.php:47
 msgid "Negarara"
+msgstr ""
+
+#: negarara.php:69
+#, php-format
+msgid "Converting full-size image: %s"
+msgstr ""
+
+#: negarara.php:74
+msgid "Full-size image converted successfully"
+msgstr ""
+
+#: negarara.php:76
+msgid "Failed to convert full-size image"
+msgstr ""
+
+#: negarara.php:87
+#, php-format
+msgid "Converting %1$s size: %2$s"
+msgstr ""
+
+#: negarara.php:92
+#, php-format
+msgid "%s size converted successfully"
+msgstr ""
+
+#: negarara.php:95
+#, php-format
+msgid "Failed to convert %s size"
+msgstr ""
+
+#: negarara.php:228
+#, php-format
+msgid "Error: No metadata found for image %d"
+msgstr ""
+
+#: negarara.php:239
+#, php-format
+msgid "Error converting image %1$d: %2$s"
 msgstr ""
