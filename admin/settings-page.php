@@ -60,27 +60,25 @@ function negarara_settings_page()
                                 <label><input type="checkbox" name="negarara_formats[]" value="jpeg" <?php checked(in_array('jpeg', get_option('negarara_formats', ['jpeg', 'png', 'gif', 'jpg']))); ?> /> <?php esc_html_e('JPEG', 'negarara'); ?></label><br/>
                                 <label><input type="checkbox" name="negarara_formats[]" value="jpg" <?php checked(in_array('jpg', get_option('negarara_formats', ['jpeg', 'png', 'gif', 'jpg']))); ?> /> <?php esc_html_e('JPG', 'negarara'); ?></label><br/>
                                 <label><input type="checkbox" name="negarara_formats[]" value="png" <?php checked(in_array('png', get_option('negarara_formats', ['jpeg', 'png', 'gif', 'jpg']))); ?> /> <?php esc_html_e('PNG', 'negarara'); ?></label><br/>
-                                <label><input type="checkbox" name="negarara_formats[]" value="gif" <?php checked(in_array('gif', get_option('negarara_formats', ['jpeg', 'png', 'gif', 'jpg']))); ?> /> <?php esc_html_e('GIF', 'negarara'); ?></label>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="option_section">
-                        <h3 class="option_section_title"><?php esc_html_e('Bulk Conversion', 'negarara'); ?></h3>
-                        <p class="option_section_description"><?php esc_html_e('Convert all existing images to WebP format and delete the original files.', 'negarara'); ?></p>
-                        <div class="option_field">
+                      <div class="option_field">
                             <label>
                                 <input type="checkbox" name="negarara_delete_original" value="1" <?php checked(get_option('negarara_delete_original', 1)); ?> />
                                 <?php esc_html_e('Delete original files after conversion', 'negarara'); ?>
                             </label>
                             <p class="option_section_description"><?php esc_html_e('Check this box to delete the original images after converting to WebP format during bulk conversion.', 'negarara'); ?></p>
                         </div>
-                        <button id="negarara_bulk_convert" class="button button-primary"><?php esc_html_e('Convert All Images', 'negarara'); ?></button>
-                        <div id="negarara_conversion_progress"></div>
-                        <div id="negarara_conversion_log" style="max-height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-top: 10px;"></div>
                     </div>
                     <div class="option_section">
                     <input type="submit" class="button button-primary" value="<?php esc_attr_e('Save Changes', 'negarara'); ?>" />
+                    </div>
+                    <div class="option_section">
+                        <h3 class="option_section_title"><?php esc_html_e('Bulk Conversion', 'negarara'); ?></h3>
+                        <p class="option_section_description"><?php esc_html_e('Convert all existing images to WebP format and delete the original files.', 'negarara'); ?></p>
+                        <button id="negarara_bulk_convert" class="button button-primary"><?php esc_html_e('Convert All Images', 'negarara'); ?></button>
+                        <div id="negarara_conversion_progress"></div>
+                        <div id="negarara_conversion_log" style="max-height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-top: 10px;"></div>
                     </div>
                 </form>
             </div>

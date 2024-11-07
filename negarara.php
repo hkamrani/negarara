@@ -3,7 +3,7 @@
 Plugin Name: Negarara
 Plugin URI: https://ertano.com/negarara
 Description: Convert uploaded images to WebP format with customizable quality settings.
-Version: 1.2
+Version: 1.3
 Author: Ertano
 Author URI: https://ertano.com
 License: GPLv2 or later
@@ -52,7 +52,7 @@ add_action('admin_menu', 'negarara_add_admin_menu');
 function negarara_convert_image_sizes_to_webp($metadata, $attachment_id,$delete_file) {
     $log = [];
     $attachment_id = absint($attachment_id);
-    $formats = get_option('negarara_formats', ['jpeg', 'png', 'gif', 'jpg']);
+    $formats = get_option('negarara_formats', ['jpeg', 'png', 'jpg']);
     $upload_dir = wp_upload_dir();
     $original_file_path = get_attached_file($attachment_id);
     $file_info = pathinfo($original_file_path);
@@ -105,15 +105,25 @@ function negarara_convert_image_sizes_to_webp($metadata, $attachment_id,$delete_
 }
 
 
-// Helper function to convert an image to WebP
+// convert an image to WebP
 function negarara_process_webp_conversion($file_path,$delete_file) {
     $file_info = pathinfo($file_path);
     $delete_file = $delete_file;
+    
+    // Get image info to check its type
+    $image_info = getimagesize($file_path);
+    $mime_type = $image_info['mime'];
+    
+    // Check if the image has a palette (GIF or 8-bit PNG)
+    // Check if the image is GIF or an 8-bit PNG
+    if ($mime_type === 'image/gif') {
+        return false; // Skip conversion for GIFs, which are palette-based
+    }
+
     // Convert the image to WebP
     $image = wp_get_image_editor($file_path);
     if (!is_wp_error($image)) {
-        // Set default quality and allow user to customize it via settings
-        $quality = get_option('negarara_quality', 80); // Assuming you added this option
+        $quality = get_option('negarara_quality', 80);
         $quality = absint($quality);
         if ($quality < 10 || $quality > 100) {
             $quality = 80; // Reset to default if out of range
@@ -138,7 +148,6 @@ function negarara_process_webp_conversion($file_path,$delete_file) {
 // Hook into the metadata generation process to convert each image size to WebP
 add_filter('wp_generate_attachment_metadata', 'negarara_convert_image_sizes_to_webp', 10, 3);
 
-
 function negarara_get_convertible_image_count() {
     check_ajax_referer('negarara_bulk_convert_nonce', 'security');
     
@@ -146,7 +155,7 @@ function negarara_get_convertible_image_count() {
         wp_send_json_error('Insufficient permissions');
     }
 
-    $selected_formats = get_option('negarara_formats', ['jpeg', 'png', 'gif', 'jpg']);
+    $selected_formats = get_option('negarara_formats', ['jpeg', 'png', 'jpg']);
     $mime_types = [];
     foreach ($selected_formats as $format) {
         switch ($format) {
@@ -156,9 +165,6 @@ function negarara_get_convertible_image_count() {
                 break;
             case 'png':
                 $mime_types[] = 'image/png';
-                break;
-            case 'gif':
-                $mime_types[] = 'image/gif';
                 break;
         }
     }
@@ -185,7 +191,7 @@ function negarara_convert_single_image() {
         wp_send_json_error('Insufficient permissions');
     }
 
-    $selected_formats = get_option('negarara_formats', ['jpeg', 'png', 'gif', 'jpg']);
+    $selected_formats = get_option('negarara_formats', ['jpeg', 'png', 'jpg']);
     $mime_types = [];
     foreach ($selected_formats as $format) {
         switch ($format) {
@@ -195,9 +201,6 @@ function negarara_convert_single_image() {
                 break;
             case 'png':
                 $mime_types[] = 'image/png';
-                break;
-            case 'gif':
-                $mime_types[] = 'image/gif';
                 break;
         }
     }
@@ -223,7 +226,6 @@ function negarara_convert_single_image() {
 
     $metadata = wp_get_attachment_metadata($attachment_id);
     if (!$metadata) {
-        update_post_meta($attachment_id, '_negarara_converted', true);
         // Translators: %d is the image attachment ID
         $log[] = ['type' => 'error', 'text' => sprintf(__('Error: No metadata found for image %d', 'negarara'), $attachment_id)];
         wp_send_json_success(['more_images' => true, 'log' => $log]);
@@ -239,13 +241,11 @@ function negarara_convert_single_image() {
         $log[] = ['type' => 'error', 'text' => sprintf(__('Error converting image %1$d: %2$s', 'negarara'), $attachment_id, $result->get_error_message())];
     } else {
         $metadata = $result['metadata'];
-        $log = array_merge($log, $result['log']);
+	$log = array_merge($log, isset($result['log']) && is_array($result['log']) ? $result['log'] : []);
 
         // Update the attachment metadata
         wp_update_attachment_metadata($attachment_id, $metadata);
 
-        // Mark this image as converted
-        update_post_meta($attachment_id, '_negarara_converted', true);
     }
 
     wp_send_json_success(['more_images' => true, 'log' => $log]);
