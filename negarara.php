@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Negarara
-Plugin URI: https://ertano.com/negarara
+Plugin URI: https://ertano.com/negarara/
 Description: Convert uploaded images to WebP format with customizable quality settings.
-Version: 1.3
+Version: 1.3.1
 Author: Ertano
 Author URI: https://ertano.com
 License: GPLv2 or later
@@ -105,19 +105,29 @@ function negarara_convert_image_sizes_to_webp($metadata, $attachment_id,$delete_
 }
 
 
-// convert an image to WebP
-function negarara_process_webp_conversion($file_path,$delete_file) {
+function negarara_process_webp_conversion($file_path, $delete_file) {
     $file_info = pathinfo($file_path);
     $delete_file = $delete_file;
-    
+
     // Get image info to check its type
     $image_info = getimagesize($file_path);
     $mime_type = $image_info['mime'];
-    
-    // Check if the image has a palette (GIF or 8-bit PNG)
-    // Check if the image is GIF or an 8-bit PNG
+
+    // Skip GIFs or palette-based images
     if ($mime_type === 'image/gif') {
-        return false; // Skip conversion for GIFs, which are palette-based
+        return false;
+    }
+
+    // Prepare base WebP file path
+    $base_dir = $file_info['dirname'];
+    $base_name = $file_info['filename'];
+    $webp_file = $base_dir . '/' . $base_name . '.webp';
+
+    // Ensure unique WebP filename
+    $counter = 1;
+    while (file_exists($webp_file)) {
+        $webp_file = $base_dir . '/' . $base_name . '-' . $counter . '.webp';
+        $counter++;
     }
 
     // Convert the image to WebP
@@ -128,12 +138,12 @@ function negarara_process_webp_conversion($file_path,$delete_file) {
         if ($quality < 10 || $quality > 100) {
             $quality = 80; // Reset to default if out of range
         }
-        $webp_file = $file_info['dirname'] . '/' . $file_info['filename'] . '.webp';
+        
         $result = $image->save($webp_file, 'image/webp', ['quality' => $quality]);
 
         if (!is_wp_error($result)) {
             // Delete the original file securely
-            if (file_exists($file_path) AND $delete_file == true) {
+            if (file_exists($file_path) && $delete_file) {
                 wp_delete_file($file_path);
             }
 
@@ -144,6 +154,7 @@ function negarara_process_webp_conversion($file_path,$delete_file) {
 
     return false;
 }
+
 
 // Hook into the metadata generation process to convert each image size to WebP
 add_filter('wp_generate_attachment_metadata', 'negarara_convert_image_sizes_to_webp', 10, 3);
