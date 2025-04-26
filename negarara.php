@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Negarara
-Plugin URI: https://ertano.com/negarara/
+Plugin URI: https://mihanwp.com/negarara/
 Description: Convert uploaded images to WebP format with customizable quality settings.
 Version: 1.4
-Author: Ertano
-Author URI: https://ertano.com
+Author: MihanWp
+Author URI: https://mihanwp.com
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: negarara
