@@ -3,7 +3,7 @@
 Plugin Name: Negarara
 Plugin URI: https://ertano.com/negarara/
 Description: Convert uploaded images to WebP format with customizable quality settings.
-Version: 1.3.1
+Version: 1.4
 Author: Ertano
 Author URI: https://ertano.com
 License: GPLv2 or later
@@ -262,3 +262,21 @@ function negarara_convert_single_image() {
     wp_send_json_success(['more_images' => true, 'log' => $log]);
 }
 add_action('wp_ajax_negarara_convert_single_image', 'negarara_convert_single_image');
+
+function negarara_handleUpdater()
+{
+    include plugin_dir_path(__FILE__) . 'mihanwpUpdater.php';
+    $plugin_data = get_file_data(__FILE__, array('Version' => 'Version'), false);
+    $plugin_version = $plugin_data['Version'];
+    
+    $updaterArgs = [
+        'base_api_server' => 'https://mihanwp.com',
+        'license_key' => 'free',
+        'item_id' => 1152552,
+        'current_version' => $plugin_version,
+        'plugin_slug' => plugin_basename(__FILE__),
+        'license_status' => true,
+    ];
+    \Negarara\mihanwpUpdater::init($updaterArgs);
+}
+add_action('plugins_loaded', 'negarara_handleUpdater');
